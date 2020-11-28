@@ -1,11 +1,13 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/baseUse/index"
   ],
+  "entryPagePath": "pages/index/index",
   "window": {
-    "navigationBarBackgroundColor": "#ccc",
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "小程序",
+    "navigationBarBackgroundColor": "#d43c33",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "云音乐",
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light",
     "enablePullDownRefresh": false

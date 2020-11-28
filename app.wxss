@@ -1,4 +1,6 @@
 /* 全局样式 */
+@import '/static/iconfont/iconfont.wxss';
+
 page {
   height: 100%;
 }

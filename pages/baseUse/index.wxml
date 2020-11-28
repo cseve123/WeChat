@@ -1,0 +1,11 @@
+<view class="index">
+  <!-- 从根目录读文件'/' -->
+  <!-- <image src="/static/images/nvsheng.jpg" class="avatar"></image> -->
+  <image wx:if="{{userInfo.avatarUrl}}" src="{{userInfo.avatarUrl}}" class="avatar"></image>
+  <button wx:else open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo">获取用户信息</button>
+  <!-- <text class="username">{{msg}}</text> -->
+  <text class="username">{{userInfo.nickName}}</text>
+  <view class="goStudy" bindtap="handleParent">
+    <text catchtap="handleChild">hello world</text>
+  </view>
+</view>
