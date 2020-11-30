@@ -15,7 +15,7 @@ Page({
     wx.request({
       url: 'http://localhost:3000/banner',
       success: (res)=> {
-        console.log('数据请求', res)
+        console.log('数据请求>>>>', res)
       },
       fail: (err)=> {
         console.log(err)
