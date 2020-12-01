@@ -1,26 +1,52 @@
 // pages/index/index.js
+import request from '../../utils/request'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    bannerList: [],
+    recommendList: [],
+    topList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    wx.request({
-      url: 'http://localhost:3000/banner',
-      success: (res)=> {
-        console.log('数据请求>>>>', res)
-      },
-      fail: (err)=> {
-        console.log(err)
-      }
+  onLoad: async function (options) {
+    // wx.request({
+    //   url: 'http://localhost:3000/banner',
+    //   success: (res)=> {
+    //     console.log('数据请求>>>>', res)
+    //   },
+    //   fail: (err)=> {
+    //     console.log(err)
+    //   }
+    // })
+    let result = await request('/banner')
+    this.setData({
+      bannerList: result.banners
     })
+    let recommendListData = await request('/personalized', {limit: 10})
+    this.setData({
+      recommendList: recommendListData.result
+    })
+    let index = 0
+    let resultArr = []
+    while(index < 5) {
+      let topListData = await request('/top/list', {idx: index++})
+      let topListItem = {
+        name: topListData.playlist.name,
+        tracks: topListData.playlist.tracks.slice(0,3)
+      }
+      resultArr.push(topListItem)
+      // 不需要等待5次请求，用户体验好一些
+      this.setData({
+        topList: resultArr
+      })
+    }
+    
   },
 
   /**

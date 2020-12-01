@@ -38,25 +38,10 @@
 .recommend {
   padding: 20rpx;
 }
-.recommend .header {
-  padding-bottom: 20rpx;
-}
-.recommend .header .title {
-  font-size: 32rpx;
-  line-height: 80rpx;
-  color: #666;
-}
-
-.recommend .header .more {
-  float: right;
-  padding: 10rpx 20rpx;
-  border: 1rpx solid #333;
-  font-size: 26rpx;
-  border-radius: 30rpx;
-}
 
 .recommend-scroll {
   display: flex;
+  height: 300rpx;
 }
 .scrollItem {
   width: 200rpx;
@@ -81,4 +66,45 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+}
+
+
+.top {
+  padding: 20rpx;
+}
+.topList {
+  height: 400rpx;
+}
+.swiperItem {
+  width: 96%;
+  background-color: #fbfbfb;
+}
+.topItem .title {
+  font-size: 30rpx;
+  line-height: 80rpx;
+}
+
+.musicItem {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+.musicItem image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.musicItem .count {
+  width: 100rpx;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+}
+
+.musicItem .musicName {
+  height: 100rpx;
+  line-height: 100rpx;
+  max-width: 400rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
