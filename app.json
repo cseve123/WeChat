@@ -3,9 +3,10 @@
     "pages/index/index",
     "pages/baseUse/index",
     "pages/video/index",
-    "pages/person/index"
+    "pages/person/index",
+    "pages/login/index"
   ],
-  "entryPagePath": "pages/person/index",
+  "entryPagePath": "pages/login/index",
   "window": {
     "navigationBarBackgroundColor": "#d43c33",
     "navigationBarTextStyle": "white",
