@@ -5,7 +5,7 @@
     "pages/video/index",
     "pages/person/index"
   ],
-  "entryPagePath": "pages/index/index",
+  "entryPagePath": "pages/person/index",
   "window": {
     "navigationBarBackgroundColor": "#d43c33",
     "navigationBarTextStyle": "white",
