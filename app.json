@@ -6,7 +6,7 @@
     "pages/person/index",
     "pages/login/index"
   ],
-  "entryPagePath": "pages/login/index",
+  "entryPagePath": "pages/person/index",
   "window": {
     "navigationBarBackgroundColor": "#d43c33",
     "navigationBarTextStyle": "white",

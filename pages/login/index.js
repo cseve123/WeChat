@@ -55,6 +55,15 @@ Page({
       wx.showToast({
         title: '登录成功'
       })
+      // 将用户信息存到本地
+      wx.setStorageSync('userInfo', JSON.stringify(result.profile))
+      // 成功回个人中心
+      // wx.switchTab({
+      //   url: '/pages/person/index',
+      // })
+      wx.reLaunch({
+        url: '/pages/person/index',
+      })
     } else if (result.code === 400) {
       wx.showToast({
         title: '手机号错误',

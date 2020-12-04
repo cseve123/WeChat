@@ -1,4 +1,5 @@
 // pages/person/index.js
+import request from "../../utils/request";
 let startY = 0;
 let moveY = 0;
 let moveDistance = 0;
@@ -9,14 +10,23 @@ Page({
    */
   data: {
     coverTransform: 'translateY(0)',
-    coverTransition: ''
+    coverTransition: '',
+    userInfo: {},
+    recentPlayList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // 缓存获取数据
+    let userInfo = wx.getStorageSync('userInfo')
+    if (userInfo) {
+      this.setData({
+        userInfo: JSON.parse(userInfo)
+      })
+    }
+    // 用户播放记录
   },
 
   /**
@@ -24,6 +34,24 @@ Page({
    */
   onReady: function () {
 
+  },
+
+  async getUserRecentPlayList(userId) {
+    let RecentPlayListData = await request('user/record', {uid: userId, type: 0})
+    let index = 0;
+    let recentPlayList = RecentPlayListData.allData.splie(0, 10).map(item => {
+      item.id = index++
+      return item
+    })
+    this.setData({
+      recentPlayList
+    })
+  },
+
+  toLogin () {
+    wx.navigateTo({
+      url: '/pages/login/index',
+    })
   },
 
   handleTouchStart (event) {
