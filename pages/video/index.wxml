@@ -1,2 +1,15 @@
-<!--pages/video/index.wxml-->
-<text>pages/video/index.wxml</text>
+<view class="video">
+  <!-- header -->
+  <view class="header">
+    <image src="/static/images/video/video.jpg"></image>
+    <view class="search">搜索商品</view>
+    <image src="/static/images/logo.png"></image>
+  </view>
+
+  <!-- nav -->
+  <scroll-view scroll-x class="navScroll" enable-flex>
+    <view class="navItem" wx:for="{{videoGroupList}}" wx:key="id" bindtap="changeNav" data-id="{{item.id}}">
+      <view class="navContent {{item.id === navId ? 'active' : ''}}">{{item.name}}</view>
+    </view>
+  </scroll-view>
+</view>

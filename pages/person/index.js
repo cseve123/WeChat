@@ -25,8 +25,10 @@ Page({
       this.setData({
         userInfo: JSON.parse(userInfo)
       })
+      // 用户播放记录
+      this.getUserRecentPlayList()
     }
-    // 用户播放记录
+    
   },
 
   /**

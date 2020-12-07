@@ -1,1 +1,35 @@
-/* pages/video/index.wxss */
+.video .header {
+  display: flex;
+  padding-top: 10rpx;
+}
+.video .header image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.video .header .search {
+  border: 1rpx solid #eee;
+  flex: 1;
+  line-height: 60rpx;
+  margin: 0 20rpx;
+  padding-left: 20rpx;
+  font-size: 26rpx;
+  text-align: center;
+  color: #d43c33;
+}
+
+.navScroll {
+  display: flex;
+  white-space: nowrap;
+}
+
+.navItem {
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.navItem .active {
+  border-bottom: 1rpx solid #d43c33;
+}
