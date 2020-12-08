@@ -30,6 +30,22 @@
   line-height: 60rpx;
 }
 
+.navScroll .navContent {
+  height: 60rpx;
+  box-sizing: border-box;
+}
+
 .navItem .active {
   border-bottom: 1rpx solid #d43c33;
+}
+
+
+/* 视频列表 */
+.videoItem {
+  padding: 0 3%;
+}
+.videoItem video {
+  width: 100%;
+  height: 360rpx;
+  border-radius: 10rpx;
 }

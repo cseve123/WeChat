@@ -7,7 +7,8 @@ Page({
    */
   data: {
     videoGroupList: [],
-    navId: ''
+    navId: '',
+    videoList: []
   },
 
   /**
@@ -15,6 +16,7 @@ Page({
    */
   onLoad: function (options) {
     this.getVideoGroupListData()
+    // 只执行一次都是异步拿不到videoList
   },
 
   async getVideoGroupListData() {
@@ -22,6 +24,20 @@ Page({
     this.setData({
       videoGroupList: videoGroupListData.data.slice(0, 14),
       navId: videoGroupListData.data[0].id
+    })
+    // 这里可以拿到
+    this.getVideoList(this.data.navId)
+  },
+
+  async getVideoList (navId) {
+    let videoListData = await request('/video/group', {id: navId})
+    let index = 0
+    let result = videoListData.datas.map(item => {
+      item.id = index++
+      return item
+    })
+    this.setData({
+      videoList: result
     })
   },
 

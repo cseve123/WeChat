@@ -12,4 +12,11 @@
       <view class="navContent {{item.id === navId ? 'active' : ''}}">{{item.name}}</view>
     </view>
   </scroll-view>
+
+  <!-- video -->
+  <scroll-view scroll-y class="videoScroll" enable-flex>
+    <view class="videoItem" wx:for="{{videoList}}" wx:key="id">
+      <video src="{{item.data.urlInfo.url}}"></video>
+    </view>
+  </scroll-view>
 </view>
