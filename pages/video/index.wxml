@@ -7,8 +7,13 @@
   </view>
 
   <!-- nav -->
-  <scroll-view scroll-x class="navScroll" enable-flex>
-    <view class="navItem" wx:for="{{videoGroupList}}" wx:key="id" bindtap="changeNav" data-id="{{item.id}}">
+  <scroll-view
+    scroll-into-view="{{'scroll' + navId}}"
+    scroll-with-animation
+    scroll-x
+    class="navScroll"
+    enable-flex>
+    <view id="{{'scroll' + item.id}}" class="navItem" wx:for="{{videoGroupList}}" wx:key="id" bindtap="changeNav" data-id="{{item.id}}">
       <view class="navContent {{item.id === navId ? 'active' : ''}}">{{item.name}}</view>
     </view>
   </scroll-view>
@@ -17,6 +22,25 @@
   <scroll-view scroll-y class="videoScroll" enable-flex>
     <view class="videoItem" wx:for="{{videoList}}" wx:key="id">
       <video src="{{item.data.urlInfo.url}}"></video>
+      <view class="content">{{item.data.title}}</view>
+      <view class="footer">
+        <image class="avatar" src="{{item.data.creator.avatarUrl}}"></image>
+        <text class="nickName">{{item.data.creator.nickname}}</text>
+        <view class="comments_praised">
+          <text class="item">
+            <text class="iconfont icon-buoumaotubiao15"></text>
+            <text class="count">{{item.data.praisedCount}}</text>
+          </text>
+          <text class="item">
+            <text class="iconfont icon-pinglun1"></text>
+            <text class="count">{{item.data.commentCount}}</text>
+          </text>
+          <button open-type="share" class="item btn">
+            <text class="iconfont icon-gengduo"></text>
+          </button>
+        </view>
+      </view>
     </view>
+    
   </scroll-view>
 </view>

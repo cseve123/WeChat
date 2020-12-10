@@ -31,6 +31,7 @@ Page({
 
   async getVideoList (navId) {
     let videoListData = await request('/video/group', {id: navId})
+    wx.hideLoading()
     let index = 0
     let result = videoListData.datas.map(item => {
       item.id = index++
@@ -45,8 +46,13 @@ Page({
     // let navId = event.currentTarget.id // 会将数字变成字符
     let navId = event.currentTarget.dataset.id
     this.setData({
-      navId: navId
+      navId: navId,
+      videoList: []
     })
+    wx.showLoading({
+      title: '正在加载',
+    })
+    this.getVideoList(this.data.navId)
   },
 
   /**
