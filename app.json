@@ -4,9 +4,11 @@
     "pages/baseUse/index",
     "pages/video/index",
     "pages/person/index",
-    "pages/login/index"
+    "pages/login/index",
+    "pages/recommendSong/index",
+    "pages/songDetail/index"
   ],
-  "entryPagePath": "pages/video/index",
+  "entryPagePath": "pages/songDetail/index",
   "window": {
     "navigationBarBackgroundColor": "#d43c33",
     "navigationBarTextStyle": "white",

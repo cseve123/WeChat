@@ -19,9 +19,33 @@
   </scroll-view>
 
   <!-- video -->
-  <scroll-view scroll-y class="videoScroll" enable-flex>
+  <scroll-view
+    bindrefresherrefresh="handleRefresher"
+    refresher-enabled
+    refresher-triggered="{{isTriggered}}"
+    bindscrolltolower="handleTolower"
+    scroll-y
+    class="videoScroll"
+    enable-flex>
     <view class="videoItem" wx:for="{{videoList}}" wx:key="id">
-      <video src="{{item.data.urlInfo.url}}"></video>
+      <video
+        poster="{{item.data.coverUrl}}"
+        id="{{item.data.vid}}"
+        bindplay="handlePlay"
+        bindtimeupdate="handleTimeUpdate"
+        bindended="handleEnded"
+        class="common"
+        object-fit="cover"
+        wx:if="{{videoId === item.data.vid}}"
+        src="{{item.data.urlInfo.url}}"></video>
+      <!-- 性能优化：使用image图片代替video标签 -->
+      <image
+        wx:else
+        id="{{item.data.vid}}"
+        class="common"
+        bindtap="handlePlay"
+        src="{{item.data.coverUrl}}"></image>
+
       <view class="content">{{item.data.title}}</view>
       <view class="footer">
         <image class="avatar" src="{{item.data.creator.avatarUrl}}"></image>
@@ -41,6 +65,5 @@
         </view>
       </view>
     </view>
-    
   </scroll-view>
 </view>
