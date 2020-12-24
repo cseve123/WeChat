@@ -2,7 +2,7 @@
   <!-- header -->
   <view class="header">
     <image src="/static/images/video/video.jpg"></image>
-    <view class="search">搜索商品</view>
+    <view class="search" bindtap="toSearch">搜索商品</view>
     <image src="/static/images/logo.png"></image>
   </view>
 

@@ -51,7 +51,13 @@ Page({
 
   toRecommendSong () {
     wx.navigateTo({
-      url: '/pages/recommendSong/index',
+      url: '/songPackage/pages/recommendSong/index',
+    })
+  },
+
+  toOther () {
+    wx.navigateTo({
+      url: '/otherPackage/pages/other/index',
     })
   },
 

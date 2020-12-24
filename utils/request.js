@@ -29,7 +29,6 @@ export default (url, data={}, method='GET') => {
                 cookie: wx.getStorageSync('cookies') ?wx.getStorageSync('cookies').find(item => item.indexOf('MUSIC_U') !== -1) : ''
             },
             success: (res) => {
-                console.log('success', res)
                 if (data.isLogin) {
                     wx.setStorage({
                       data: res.cookies,

@@ -5,10 +5,31 @@
     "pages/video/index",
     "pages/person/index",
     "pages/login/index",
-    "pages/recommendSong/index",
-    "pages/songDetail/index"
+    "pages/search/index"
   ],
-  "entryPagePath": "pages/songDetail/index",
+  "subPackages": [
+    {
+      "root": "otherPackage",
+      "name": "other",
+      "pages": [
+        "pages/other/index"
+      ]
+    },
+    {
+      "root": "songPackage",
+      "pages": [
+        "pages/recommendSong/index",
+        "pages/songDetail/index"
+      ],
+      "independent": false
+    }
+  ],
+  "preloadRule": {
+    "pages/index/index": {
+      "packages": ["songPackage", "other"]
+    }
+  },
+  "entryPagePath": "pages/index/index",
   "window": {
     "navigationBarBackgroundColor": "#d43c33",
     "navigationBarTextStyle": "white",
@@ -18,6 +39,10 @@
     "enablePullDownRefresh": false
   },
   "sitemapLocation": "sitemap.json",
+  "requiredBackgroundModes": [
+    "audio",
+    "location"
+  ],
   "tabBar": {
     "color": "#333",
     "selectedColor": "#d43c33",
